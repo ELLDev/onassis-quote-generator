@@ -36,8 +36,16 @@ const quotes = [
   },
 ];
 
+let lastThreeQuotes = [0, 0, 0]
 const getRandomQuote = () => {
-  const randomQuoteIndex = Math.floor(Math.random() * quotes.length);
+  let randomQuoteIndex = 0;
+
+  while (lastThreeQuotes.includes(randomQuoteIndex)) {
+    randomQuoteIndex = Math.floor(Math.random() * quotes.length);
+  }
+
+  lastThreeQuotes.pop();
+  lastThreeQuotes.unshift(randomQuoteIndex);
   return quotes[randomQuoteIndex];
 };
 
