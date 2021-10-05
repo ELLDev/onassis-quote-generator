@@ -1,3 +1,7 @@
+let lastThreeQuotes = [0, 0, 0, 0, 0, 0];
+let progressBar = document.getElementById("progress-bar");
+let progressBarWidth = 100;
+
 const quotes = [
   {
     quote:
@@ -10,10 +14,6 @@ const quotes = [
   },
   {
     quote: "The more you own, the more you know you don’t own.",
-    source: "Aristotle Onassis",
-  },
-  {
-    quote: "Every win is an injustice to someone.",
     source: "Aristotle Onassis",
   },
   {
@@ -45,7 +45,6 @@ const quotes = [
   },
 ];
 
-let lastThreeQuotes = [0, 0, 0, 0, 0, 0];
 const getRandomQuote = () => {
   let randomQuoteIndex = 0;
 
@@ -75,11 +74,22 @@ const printQuote = () => {
   html += `
 </p>`;
 
+  progressBarWidth = 100;
+  clearInterval(intervalID);
+  intervalID = setInterval(printQuote, 10000);
   document.getElementById("quote-box").innerHTML = html;
 };
 
-let intervalID = setInterval(printQuote, 10000);
+shrinkProgressBar = () => {
+  if (progressBarWidth >= 0.2) {
+    progressBarWidth -= 0.1;
+    progressBar.style.width = progressBarWidth + "%";
+  }
+};
 
 document
   .getElementById("load-quote")
   .addEventListener("click", printQuote, false);
+
+let intervalID = setInterval(printQuote, 10000);
+let barIntervalID = setInterval(shrinkProgressBar, 10);
