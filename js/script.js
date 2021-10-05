@@ -3,7 +3,6 @@ const quotes = [
     quote:
       "Don’t sleep too much. If you sleep three hours less each night for a year, you will have an extra month and a half to succeed in.",
     source: "Aristotle Onassis",
-    year: 1968,
   },
   {
     quote: "Every win is an injustice to someone.",
@@ -18,25 +17,35 @@ const quotes = [
     source: "Aristotle Onassis",
   },
   {
-    quote: "The secret of business is to know something that nobody else knows.",
-    source: "Aristotle Onassis",
-    citation: "Unknown",
-  },
-  {
-    quote: "It is in our darkest moments where we have to focus to see the light.",
+    quote:
+      "The secret of business is to know something that nobody else knows.",
     source: "Aristotle Onassis",
   },
   {
-    quote: "We must free ourselves of the hope that the sea will ever rest. We must learn to sail in high winds.",
+    quote:
+      "It is in our darkest moments where we have to focus to see the light.",
     source: "Aristotle Onassis",
   },
   {
-    quote: "I hate the opera. No matter how hard I concentrate it still sounds like a bunch of Italian chefs screaming risotto recipes at each other.",
+    quote:
+      "We must free ourselves of the hope that the sea will ever rest. We must learn to sail in high winds.",
     source: "Aristotle Onassis",
+  },
+  {
+    quote:
+      "I hate the opera. No matter how hard I concentrate it still sounds like a bunch of Italian chefs screaming risotto recipes at each other.",
+    source: "Aristotle Onassis",
+  },
+  {
+    quote:
+      "My favorite country is the one that grants maximum immunity from taxes, trade restrictions, and unreasonable regulations.",
+    source: "Aristotle Onassis",
+    citation: "T&C Magazine February Edition",
+    year: 1964,
   },
 ];
 
-let lastThreeQuotes = [0, 0, 0]
+let lastThreeQuotes = [0, 0, 0, 0, 0, 0];
 const getRandomQuote = () => {
   let randomQuoteIndex = 0;
 
@@ -68,6 +77,8 @@ const printQuote = () => {
 
   document.getElementById("quote-box").innerHTML = html;
 };
+
+let intervalID = setInterval(printQuote, 10000);
 
 document
   .getElementById("load-quote")
