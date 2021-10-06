@@ -15,6 +15,7 @@ const quotes = [
   {
     quote: "The more you own, the more you know you don’t own.",
     source: "Aristotle Onassis",
+    tags: "#Philosophy #Wealth #Inspirational",
   },
   {
     quote:
@@ -91,6 +92,10 @@ const printQuote = () => {
   if ("year" in randomQuote) {
     html += `    
   <span class="year"> ${randomQuote.year} </span>`;
+  }
+  if ("tags" in randomQuote) {
+    html += `    
+  <span class="tags"> ${randomQuote.tags} </span>`;
   }
   html += `
 </p>`;

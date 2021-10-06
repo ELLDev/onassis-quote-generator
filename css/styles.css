@@ -1,3 +1,4 @@
+/* Global Layout Set-up */
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rufina&display=swap");
 
@@ -9,6 +10,7 @@ body {
   text-align: center;
 }
 
+/* Section Styles */
 header {
   display: flex;
   flex-flow: row wrap;
@@ -41,6 +43,17 @@ img {
   border-radius: 4px;
   border: 2px solid rgba(0, 0, 0, 0.3);
   transition: 0.5s;
+}
+
+h1,
+img,
+.load-quote {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 .load-quote:hover {
@@ -127,6 +140,11 @@ img {
   font-style: normal;
 }
 
+.tags:before {
+  content: "| ";
+  font-style: normal;
+}
+
 @media (min-width: 768px) {
   body {
     padding: 25px;
@@ -209,7 +227,7 @@ img {
     max-height: 329px;
     height: calc(38vw / 1.184);
   }
-  
+
   .quote-box {
     margin: 0;
     padding: 0;
