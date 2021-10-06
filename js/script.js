@@ -57,6 +57,27 @@ const getRandomQuote = () => {
   return quotes[randomQuoteIndex];
 };
 
+const pickRandomBackgroundColor = () => {
+  let r = 0;
+  let g = 0;
+  let b = 0;
+  let lowerOffset = 0;
+  let upperOffset = 0;
+
+  r = Math.floor(Math.random() * 64) + 12;
+  g = Math.floor(Math.random() * 64) + 12;
+
+  lowerOffset = 99 - r - g;
+  upperOffset = 162 - r - g;
+
+  if (lowerOffset < 12) lowerOffset = 12;
+  if (upperOffset > 75) upperOffset = 75;
+
+  b = Math.round(Math.random() * (upperOffset - lowerOffset)) + lowerOffset;
+
+  document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+};
+
 const printQuote = () => {
   const randomQuote = getRandomQuote();
   let html = `<p class="quote"> ${randomQuote.quote} </p>
@@ -74,6 +95,7 @@ const printQuote = () => {
   html += `
 </p>`;
 
+  pickRandomBackgroundColor();
   progressBarWidth = 100;
   clearInterval(intervalID);
   intervalID = setInterval(printQuote, 10000);
