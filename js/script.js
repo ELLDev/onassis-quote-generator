@@ -46,6 +46,12 @@ const quotes = [
   },
 ];
 
+/**
+ * Picks a random quote from the quotes array and returns that quote
+ *
+ * @returns {{quote: string, soruce: string, citation: string, year: number, tags: string}} a quote object.
+ */
+
 const getRandomQuote = () => {
   let randomQuoteIndex = 0;
 
@@ -57,6 +63,12 @@ const getRandomQuote = () => {
   lastThreeQuotes.unshift(randomQuoteIndex);
   return quotes[randomQuoteIndex];
 };
+
+/**
+ * Randomizes the body background-color in the following pattern:
+ * The sum of R + G + B is always between 99 and 162
+ * Each primary color has a minimum value of 12 and maximum of 75
+ */
 
 const pickRandomBackgroundColor = () => {
   let r = 0;
@@ -78,6 +90,12 @@ const pickRandomBackgroundColor = () => {
 
   document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 };
+
+/**
+ * Displays a random quote in the browser, using the quote object from getRandomQuote().
+ * Resets the progress bar every time a new quote is displayed.
+ * This method is run every 10 seconds.
+ */
 
 const printQuote = () => {
   const randomQuote = getRandomQuote();
@@ -106,6 +124,10 @@ const printQuote = () => {
   intervalID = setInterval(printQuote, 10000);
   document.getElementById("quote-box").innerHTML = html;
 };
+
+/**
+ * Shrinks the width of a progress bar that indicates when the quote is about to refresh.
+ */
 
 shrinkProgressBar = () => {
   if (progressBarWidth >= 0.2) {
